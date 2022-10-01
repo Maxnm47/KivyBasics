@@ -1,0 +1,74 @@
+TabbedPanel:
+    do_default_tab: False
+    TabbedPanelItem:
+        text:"1"
+        ScrollView:
+            ScreenManager:
+                id: manager  
+                size_hint_y: None
+                height: self.current_screen.height 
+                on_current_screen: self.height = self.current_screen.height  
+
+                MainScreen:
+                    name: 'main'
+                    size_hint_y: None
+                    height: grid.height  
+
+                    GridLayout:
+                        id: grid
+                        size_hint_y: None
+                        height: self.minimum_height
+                        spacing: 10
+                        padding: 10
+                        cols:1
+                        row_default_height: 100
+                        row_force_default: True
+                        Button:
+                            text: 'first'
+                            on_press: manager.current = 'first'  
+                            size_hint: 1, None
+                            height: 100
+                        Button:
+                            text: 'Second'
+                            on_press: manager.current = 'second'  
+                            
+                FirstScreen:
+                    name: 'first'
+                    height: root.height
+                    size_hint_max: root.size
+                SecondScreen:
+                    name: "second"
+                    height: root.height
+                    size_hint_max: root.size
+    TabbedPanelItem:
+        text:"2"
+    TabbedPanelItem:
+        text:"3"
+<FirstScreen>:
+    size_hint_y: None
+    height: root.height
+    BoxLayout:
+        Label:
+            text:"first"
+        Button:
+            text: 'Back to main'
+            on_press: root.manager.current = 'main'
+
+<SecondScreen>
+    size_hint_y: None
+    height: root.height
+    BoxLayout:
+        orientation:"vertical"
+        Label:
+            text:"second"
+        Label:
+            text:"second"
+        Label:
+            text:"second"
+        Label:
+            text:"second"
+        Label:
+            text:"second"
+        Button:
+            text: 'Back to main'
+            on_press: root.manager.current = 'main'
