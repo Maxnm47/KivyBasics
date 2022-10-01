@@ -6,14 +6,16 @@ from kivy.lang import Builder
 Config.set('graphics', 'resizeable', 0)
 Window.size = (375,700)
 
-class MainScreen(Screen):
+class MainScreen(Screen): #mainscreen inside your scrollview
     pass
-class FirstScreen(Screen):
+class FirstScreen(Screen):#first screen
     pass
 
-class SecondScreen(Screen):
+class SecondScreen(Screen): #second screen
     pass
-root = Builder.load_file("main.kv")
+
+root = Builder.load_file("main.kv") #should match the name of your kv file
+
 class myapp(App):
     def build(self):
         return root
