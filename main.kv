@@ -1,15 +1,15 @@
-TabbedPanel:
-    do_default_tab: False
-    TabbedPanelItem:
+TabbedPanel: #the tabbed panel containing it all
+    do_default_tab: False #no default tab in order to just have the first tab as "1"
+    TabbedPanelItem: #"First tabbed panel item
         text:"1"
-        ScrollView:
-            ScreenManager:
+        ScrollView: #the scroll view
+            ScreenManager: #the screen manager
                 id: manager  
-                size_hint_y: None
+                size_hint_y: None #should have a sizehint to none
                 height: self.current_screen.height 
-                on_current_screen: self.height = self.current_screen.height  
+                on_current_screen: self.height = self.current_screen.height  #Here is the screen sizer.
 
-                MainScreen:
+                MainScreen: #the main screen sets sets the enheritance for the other screens
                     name: 'main'
                     size_hint_y: None
                     height: grid.height  
@@ -44,7 +44,7 @@ TabbedPanel:
         text:"2"
     TabbedPanelItem:
         text:"3"
-<FirstScreen>:
+<FirstScreen>: #This is here you can put your code for your first screen, after mentioning it in the screenmanager
     size_hint_y: None
     height: root.height
     BoxLayout:
